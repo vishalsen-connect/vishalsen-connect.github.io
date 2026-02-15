@@ -80,10 +80,70 @@ header{
 h1{margin:0;font-size:42px;font-weight:700;}
 h2{margin:8px 0 0;font-weight:500;font-size:22px;}
 
-.theme-toggle{
-  position:absolute;
+/* THEME TOGGLE SWITCH */
+.theme-toggle-wrapper{
+  position:fixed;
   top:15px;
   right:15px;
+  z-index:1001;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width:60px;
+  height:30px;
+}
+.switch input { display: none; }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:#ccc;
+  border-radius:34px;
+  transition:0.4s;
+}
+.slider::before {
+  content:"";
+  position: absolute;
+  height:24px;
+  width:24px;
+  left:3px;
+  top:3px;
+  background:white;
+  border-radius:50%;
+  transition:0.4s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+  color:black;
+}
+.slider .sun-icon {
+  position:absolute;
+  left:8px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:14px;
+  color:black;
+  pointer-events:none;
+}
+.slider .moon-icon {
+  position:absolute;
+  right:9px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:14px;
+  color:black;
+  pointer-events:none;
+}
+input:checked + .slider::before {
+  transform: translateX(30px);
+}
+input:checked + .slider {
+  background: var(--accent);
 }
 
 .top-buttons{
@@ -109,8 +169,6 @@ h2{margin:8px 0 0;font-weight:500;font-size:22px;}
 }
 .btn:hover{transform:translateY(-2px) scale(1.03);}
 
-.toggle-btn{background:#111827;color:white;}
-.toggle-btn.active{background:#ffffff;color:#111;}
 .pdf-btn{background:#16a34a;color:white;}
 .gmail-btn{background:#ea4335;color:white;}
 .linkedin-btn{background:#0a66c2;color:white;}
@@ -222,6 +280,16 @@ footer{text-align:center;padding:20px;font-size:14px;opacity:0.8;}
   <a href="#education-anchor" class="nav-btn">Education</a>
   <a href="#certifications-anchor" class="nav-btn">Certifications</a>
 </nav>
+
+<div class="theme-toggle-wrapper">
+  <label class="switch">
+    <input type="checkbox" id="themeSwitch">
+    <span class="slider">
+      <i class="fa-solid fa-sun sun-icon"></i>
+      <i class="fa-solid fa-moon moon-icon"></i>
+    </span>
+  </label>
+</div>
 
 <header>
 
@@ -375,13 +443,10 @@ cloud-native solutions.
 
 <script>
 // Theme toggle
-function toggleTheme(){
-  const body = document.body;
-  const btn = document.getElementById("themeBtn");
-  body.classList.toggle("dark");
-  btn.classList.toggle("active");
-  btn.innerHTML = body.classList.contains("dark") ? '<i class="fa-solid fa-sun"></i> Light' : '<i class="fa-solid fa-moon"></i> Dark';
-}
+const themeSwitch = document.getElementById('themeSwitch');
+themeSwitch.addEventListener('change', () => {
+  document.body.classList.toggle('dark', themeSwitch.checked);
+});
 
 // Scroll restoration
 history.scrollRestoration = "manual";
