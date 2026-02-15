@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vishal Sen | DevOps • MLOps • AIOps Engineer</title>
+
+<meta name="description" content="Vishal Sen - DevOps, MLOps & AIOps Engineer with 7+ years experience in AWS, Azure, GCP, Kubernetes, CI/CD, Terraform and ML platforms.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --bg:#f5f7fa;
+  --card:#ffffff;
+  --text:#1a1a1a;
+  --accent:#2563eb;
+  --line:#dbeafe;
+}
+body.dark{
+  --bg:#0b0f19;
+  --card:#121829;
+  --text:#e6edf3;
+  --accent:#38bdf8;
+  --line:#1e293b;
+}
+body{
+  margin:0;
+  font-family:'Inter', sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:0.3s;
+  scroll-behavior:smooth;
+  scroll-padding-top:80px;
+  line-height:1.6;
+  font-size:16px;
+}
+
+/* NAVBAR */
+nav{
+  position:sticky;
+  top:0;
+  background:var(--card);
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  padding:14px;
+  z-index:1000;
+  box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+.nav-btn{
+  padding:10px 20px;
+  border-radius:10px;
+  background:linear-gradient(145deg,#ffffff,#d1d9e6);
+  box-shadow:6px 6px 12px #c5ccd8,-6px -6px 12px #ffffff;
+  text-decoration:none;
+  color:#111;
+  font-weight:600;
+  font-size:16px;
+  transition:0.25s;
+}
+body.dark .nav-btn{
+  background:linear-gradient(145deg,#1c2435,#0f172a);
+  box-shadow:4px 4px 10px #0b1020,-4px -4px 10px #1b2540;
+  color:#e6edf3;
+}
+.nav-btn:hover{transform:translateY(-2px) scale(1.03);}
+
+/* HEADER */
+header{
+  position:relative;
+  padding:80px 20px 60px;
+  text-align:center;
+  background:linear-gradient(135deg,var(--accent),#0ea5e9);
+  color:white;
+}
+h1{margin:0;font-size:48px;font-weight:700;}
+h2{margin:8px 0 0;font-weight:500;font-size:22px;}
+
+.theme-toggle{
+  position:absolute;
+  top:20px;
+  right:20px;
+}
+
+.top-buttons{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  margin-top:25px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:none;
+  padding:12px 22px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+  text-decoration:none;
+  font-size:15px;
+  transition:0.25s;
+}
+.btn:hover{transform:translateY(-2px) scale(1.04);}
+
+.toggle-btn{background:#111827;color:white;}
+.toggle-btn.active{background:#ffffff;color:#111;}
+.pdf-btn{background:#16a34a;color:white;}
+.gmail-btn{background:#ea4335;color:white;}
+.linkedin-btn{background:#0a66c2;color:white;}
+.github-btn{background:#111827;color:white;}
+body.dark .github-btn{background:#e5e7eb;color:#111827;}
+
+/* CONTENT */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:35px 20px;
+}
+
+.section-title{
+  font-size:24px;
+  font-weight:700;
+  margin-bottom:20px;
+  padding:12px 18px;
+  background:var(--line);
+  border-left:6px solid var(--accent);
+  border-radius:8px;
+}
+
+/* EXPERIENCE TYPOGRAPHY */
+.role{
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:4px;
+}
+
+.company-row{
+  display:flex;
+  justify-content:space-between;
+  font-size:16px;
+  font-weight:600;
+}
+
+.location{
+  font-size:15px;
+  color:gray;
+  margin-bottom:10px;
+}
+
+.exp-list{
+  font-size:16px;
+  margin-top:10px;
+  margin-bottom:15px;
+  padding-left:20px;
+}
+
+.exp-list li{
+  margin-bottom:8px;
+}
+
+/* ANCHOR OFFSET */
+.anchor{
+  display:block;
+  height:80px;  /* equal to navbar height */
+  margin-top:-80px;
+  visibility:hidden;
+}
+
+/* PRINT MODE FOR PDF */
+@media print{
+  nav, .theme-toggle, .top-buttons{display:none;}
+  body{background:white;color:black;font-size:12pt;}
+  .card{box-shadow:none;border:1px solid #ddd;}
+}
+
+footer{text-align:center;padding:22px;font-size:15px;opacity:0.8;}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#summary-anchor" class="nav-btn">Summary</a>
+  <a href="#skills-anchor" class="nav-btn">Skills</a>
+  <a href="#experience-anchor" class="nav-btn">Experience</a>
+  <a href="#education-anchor" class="nav-btn">Education</a>
+  <a href="#certifications-anchor" class="nav-btn">Certifications</a>
+</nav>
+
+<header>
+
+<button class="btn toggle-btn theme-toggle" onclick="toggleTheme()" id="themeBtn">
+  <i class="fa-solid fa-moon"></i> Dark
+</button>
+
+<h1>Vishal Sen</h1>
+<h2>DevOps • MLOps • AIOps Engineer</h2>
+
+<p style="margin-top:12px; font-size:16px; opacity:0.9;">
+📍 Noida, India | 📱 +91-6375067621
+</p>
+
+<div class="top-buttons">
+  <a class="btn gmail-btn" href="mailto:vishalsen.connect@gmail.com"><i class="fa-solid fa-envelope"></i> Gmail</a>
+  <a class="btn linkedin-btn" href="https://linkedin.com/in/vishalsen-connect/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+  <a class="btn github-btn" href="https://github.com/vishalsen-connect" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+  <a class="btn pdf-btn" href="resume.pdf" download><i class="fa-solid fa-download"></i> Download CV</a>
+</div>
+
+</header>
+
+<div class="container">
+<!-- SUMMARY -->
+<div id="summary" class="card">
+  <span id="summary-anchor" class="anchor"></span>
+  <div class="section-title">Professional Summary</div>
+<p>
+DevOps & MLOps Engineer with 7+ years of experience in multi-cloud environments across AWS, Azure, and
+GCP. Skilled in CI/CD pipeline automation, Kubernetes orchestration, IaC, monitoring, and secure 
+infrastructure design. Experienced in building scalable ML pipelines using SageMaker, MLflow, and
+Azure ML. Focused on automation, cost optimization, system reliability, and delivering high-performance
+cloud-native solutions.
+</p>
+</div>
+
+<!-- SKILLS -->
+<div id="skills" class="card">
+  <span id="skills-anchor" class="anchor"></span>
+  <div class="section-title">Professional Skills</div>
+  <p><strong>Cloud & Platforms:</strong> AWS, Microsoft Azure, GCP, DigitalOcean, VMware</p>
+  <p><strong>Containerization & Orchestration:</strong> Docker, Kubernetes (EKS, AKS), Amazon ECS, Azure Container, OpenShift</p>
+  <p><strong>CI/CD & DevOps Tools:</strong> Jenkins, Azure DevOps, GitHub Actions, Argo CD, AWS CodePipeline, Bitbucket Pipelines</p>
+  <p><strong>Infrastructure as Code & Automation:</strong> Terraform, Terragrunt, CloudFormation, Ansible</p>
+  <p><strong>Monitoring & Observability:</strong> Amazon CloudWatch, Azure Monitor, Prometheus, Grafana, ELK Stack, Splunk, Zabbix, Nagios</p>
+  <p><strong>Scripting & Programming:</strong> Python, Bash, Groovy</p>
+  <p><strong>Security & Compliance:</strong> CyberArk, SailPoint, SonarQube, Fossology, OWASP Dependency-Check, SOC 2, HIPAA, GDPR</p>
+  <p><strong>MLOps & ML Platforms:</strong> MLflow, Kubeflow, KServe, DVC, SageMaker, Azure ML, Vertex AI, TensorFlow, PyTorch, Scikit-learn, Pandas, NumPy</p>
+  <p><strong>Data & Analytics:</strong> Power BI, Tableau, Glue, Azure Data Factory</p>  
+</div>
+
+<!-- EXPERIENCE -->
+<div id="experience" class="card">
+  <span id="experience-anchor" class="anchor"></span>
+  <div class="section-title">Professional Experience</div>
+<div class="role">Lead Consultant</div>
+<div class="company-row">
+<span>HCL Tech</span>
+<span>August 2024 – October 2025</span>
+</div>
+<div class="location">Noida, Uttar Pradesh</div>
+
+<ul class="exp-list">
+<li>Architected multi-cloud CI/CD pipelines (AWS, Azure, GitHub Actions), increasing deployment reliability by 70%.</li>
+<li>Deployed containerized applications on AKS, EKS, OpenShift, managing 500+ artifacts via JFrog Artifactory.</li>
+<li>Built end-to-end MLOps pipelines using MLflow, SageMaker, Azure ML, and Docker with automated model training & deployment.</li>
+<li>Implemented CyberArk for credential governance, reducing privileged access risk by 60%.</li>
+<li>Automated infrastructure using Terraform & Ansible, cutting manual configuration efforts by 50%.</li>
+<li>Developed detailed runbooks, architecture diagrams, and SOPs, improving onboarding efficiency by 30%.</li>
+<li>Achieved 99.9% uptime using proactive monitoring with Azure Monitor & AWS CloudWatch.</li>
+</ul>
+
+
+<div class="role">DevOps Engineer</div>
+<div class="company-row">
+<span>Matellio Inc (India)</span>
+<span>April 2023 – June 2024</span>
+</div>
+<div class="location">Jaipur, Rajasthan</div>
+
+<ul class="exp-list">
+<li>Managed multi-cloud infrastructure across AWS and Azure, supporting 50+ distributed production workloads.</li>
+<li>Built scalable Infrastructure as Code using Terraform, CloudFormation, and ARM templates, reducing provisioning time by 70%.</li>
+<li>Designed and implemented CI/CD pipelines using Jenkins, GitHub Actions, and Azure DevOps for multi-environment deployments.</li>
+<li>Developed MLOps workflows using MLflow, SageMaker, and Azure ML, enabling automated model training and versioning.</li>
+<li>Optimized cloud resource utilization, reducing AWS and Azure costs by 30% through rightsizing and auto-scaling strategies.</li>
+<li>Implemented disaster recovery solutions, improving RTO by 50%.</li>
+</ul>
+
+
+<div class="role">DevOps Engineer</div>
+<div class="company-row">
+<span>Stellar Informatics Private Limited</span>
+<span>September 2020 – April 2023</span>
+</div>
+<div class="location">Noida, Uttar Pradesh</div>
+
+<ul class="exp-list">
+<li>Built CI/CD pipelines for AWS and Azure, improving deployment efficiency by 70%.</li>
+<li>Managed GitHub, GitLab, and AWS CodeCommit repositories with standardized branching strategies.</li>
+<li>Integrated DevSecOps tools such as SonarQube and OWASP Dependency-Check to ensure secure releases.</li>
+<li>Implemented monitoring using Prometheus, Grafana, and AWS CloudWatch, reducing issue detection time by 40%.</li>
+<li>Containerized applications using Docker and deployed workloads on AWS ECS and Azure Container Instances (ACI).</li>
+</ul>
+
+
+<div class="role">System Administrator</div>
+<div class="company-row">
+<span>Evision Technoserve Private Limited</span>
+<span>January 2019 – September 2020</span>
+</div>
+<div class="location">Noida, Uttar Pradesh</div>
+
+<ul class="exp-list">
+<li>Automated infrastructure provisioning on AWS and Azure using Terraform, reducing environment setup time by 60%.</li>
+<li>Built CI/CD pipelines using Jenkins, improving deployment speed by 50%.</li>
+<li>Managed Linux and Windows servers, ensuring high availability and patch compliance.</li>
+<li>Implemented Docker-based containerization and monitoring using Prometheus and Grafana.</li>
+</ul>
+
+
+</div>
+
+<!-- EDUCATION -->
+<div id="education" class="card">
+  <span id="education-anchor" class="anchor"></span>
+  <div class="section-title">Education</div>
+<p><strong>Master of Business Administration (MBA-T&FINANCE)</strong><br>Swami Vivekanand Subharti University, Meerut • 07/2021-06/2023</p>
+<p><strong>Bachelor of Computer Application (BCA)</strong><br>Jaipur National University, Jaipur • 07/2017 - 06/2021</p>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div id="certifications" class="card">
+  <span id="certifications-anchor" class="anchor"></span>
+  <div class="section-title">Certifications</div>
+  <ul class="exp-list">
+    <li>Microsoft Certified: Azure Fundamentals</li>
+    <li>Microsoft Certified: Azure Administrator Associate</li>
+    <li>Microsoft Certified: DevOps Engineer Expert</li>
+    <li>AWS Certified DevOps Engineer - Professional</li>
+    <li>Red Hat Certified System Administrator (RHCSA)</li>
+    <li>Red Hat Certified Engineer (RHCE)</li>
+    <li>Red Hat Certified Virtualization Administrator (RHCVA)</li>
+  </ul>
+</div>
+
+</div>
+
+<footer>© 2026 Vishal Sen • DevOps Resume • GitHub Pages</footer>
+
+<script>
+// Theme toggle
+function toggleTheme(){
+  const body = document.body;
+  const btn = document.getElementById("themeBtn");
+  body.classList.toggle("dark");
+  btn.classList.toggle("active");
+  btn.innerHTML = body.classList.contains("dark") ? '<i class="fa-solid fa-sun"></i> Light' : '<i class="fa-solid fa-moon"></i> Dark';
+}
+
+// Scroll restoration
+history.scrollRestoration = "manual";
+window.addEventListener('load', () => window.scrollTo(0,0));
+
+// Smooth scrolling nav
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    const navbarOffset = 80;
+    const elementPosition = target.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - navbarOffset;
+    window.scrollTo({top: offsetPosition, behavior:'smooth'});
+    history.pushState(null, null, link.getAttribute('href'));
+  });
+});
+</script>
+
+</body>
+</html>
