@@ -13,29 +13,36 @@
 
 <style>
 :root{
-  --bg:#f5f7fa;
+  --bg:#ffffff;
   --card:#ffffff;
   --text:#1a1a1a;
-  --accent:#2563eb;
-  --line:#dbeafe;
+  --accent:#c9a227;
+  --accent-soft:#f7e7b5;
+  --line:#f1e4b3;
+  --footer-bg:#faf7ea;
 }
+
+/* DARK */
 body.dark{
-  --bg:#0b0f19;
-  --card:#121829;
-  --text:#e6edf3;
-  --accent:#38bdf8;
-  --line:#1e293b;
+  --bg:#0f1115;
+  --card:#161a22;
+  --text:#e6e6e6;
+  --accent:#d4af37;
+  --accent-soft:#2a2413;
+  --line:#3a3218;
+  --footer-bg:#161a22;
 }
+
 body{
   margin:0;
   font-family:'Inter', sans-serif;
   background:var(--bg);
   color:var(--text);
-  transition:0.3s;
   scroll-behavior:smooth;
-  scroll-padding-top:80px;
-  line-height:1.6;
-  font-size:16px;
+  scroll-padding-top:90px;
+  line-height:1.65;
+  font-size:17px;
+  transition:0.3s;
 }
 
 /* NAVBAR */
@@ -47,103 +54,79 @@ nav{
   justify-content:center;
   flex-wrap:wrap;
   gap:10px;
-  padding:10px;
+  padding:12px;
   z-index:1000;
   box-shadow:0 4px 15px rgba(0,0,0,0.08);
 }
+
 .nav-btn{
-  padding:8px 16px;
-  border-radius:10px;
-  background:linear-gradient(145deg,#ffffff,#d1d9e6);
-  box-shadow:4px 4px 8px #c5ccd8,-4px -4px 8px #ffffff;
+  padding:9px 18px;
+  border-radius:8px;
+  background:var(--accent-soft);
   text-decoration:none;
-  color:#111;
+  color:var(--text);
   font-weight:600;
   font-size:15px;
   transition:0.25s;
 }
-body.dark .nav-btn{
-  background:linear-gradient(145deg,#1c2435,#0f172a);
-  box-shadow:3px 3px 6px #0b1020,-3px -3px 6px #1b2540;
-  color:#e6edf3;
-}
-.nav-btn:hover{transform:translateY(-2px) scale(1.03);}
+.nav-btn:hover{background:var(--accent);color:white;}
 
-/* HEADER */
-header{
-  position:relative;
-  padding:70px 15px 50px;
-  text-align:center;
-  background:linear-gradient(135deg,var(--accent),#0ea5e9);
-  color:white;
-}
-h1{margin:0;font-size:42px;font-weight:700;}
-h2{margin:8px 0 0;font-weight:500;font-size:22px;}
-
-/* THEME TOGGLE SWITCH */
+/* TOGGLE WITH SUN MOON */
 .theme-toggle-wrapper{
   position:fixed;
-  top:15px;
-  right:15px;
-  z-index:1001;
+  top:14px;
+  right:14px;
+  z-index:1100;
 }
 .switch {
   position: relative;
   display: inline-block;
-  width:60px;
-  height:30px;
+  width:62px;
+  height:32px;
 }
-.switch input { display: none; }
+
+.switch input { display:none; }
+
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
+  position:absolute;
+  cursor:pointer;
+  top:0; left:0; right:0; bottom:0;
   background:#ccc;
   border-radius:34px;
   transition:0.4s;
 }
-.slider::before {
+.slider:before {
   content:"";
-  position: absolute;
-  height:24px;
-  width:24px;
+  position:absolute;
+  height:26px;
+  width:26px;
   left:3px;
   top:3px;
   background:white;
   border-radius:50%;
   transition:0.4s;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:14px;
-  color:black;
+  z-index:2;
 }
-.slider .sun-icon {
+
+.sun-icon, .moon-icon{
   position:absolute;
-  left:8px;
   top:50%;
   transform:translateY(-50%);
   font-size:14px;
-  color:black;
   pointer-events:none;
 }
-.slider .moon-icon {
-  position:absolute;
-  right:9px;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:14px;
-  color:black;
-  pointer-events:none;
-}
-input:checked + .slider::before {
-  transform: translateX(30px);
-}
-input:checked + .slider {
-  background: var(--accent);
+.sun-icon{left:8px;color:#000;}
+.moon-icon{right:8px;color:#000;}
+
+input:checked + .slider{background:var(--accent);}
+input:checked + .slider:before{transform:translateX(30px);}
+
+/* HEADER */
+header{
+  padding:80px 20px 55px;
+  text-align:center;
+  background:linear-gradient(135deg,var(--card),var(--accent-soft));
+  border-bottom:3px solid var(--accent);
 }
 
 .top-buttons{
@@ -160,7 +143,7 @@ input:checked + .slider {
   gap:6px;
   border:none;
   padding:10px 18px;
-  border-radius:10px;
+  border-radius:8px;
   cursor:pointer;
   font-weight:600;
   text-decoration:none;
@@ -173,114 +156,87 @@ input:checked + .slider {
 .gmail-btn{background:#ea4335;color:white;}
 .linkedin-btn{background:#0a66c2;color:white;}
 .github-btn{background:#111827;color:white;}
-body.dark .github-btn{background:#e5e7eb;color:#111827;}
+.pdf-btn{background:#16a34a;color:white;}
+
+.btn:hover{transform:translateY(-2px);}
 
 /* CONTENT */
 .container{
-  max-width:1100px;
+  max-width:1150px;
   margin:auto;
-  padding:25px 15px;
+  padding:30px 18px;
 }
 
 .section-title{
-  font-size:22px;
+  font-size:24px;
   font-weight:700;
-  margin-bottom:18px;
-  padding:10px 14px;
+  margin-bottom:20px;
+  padding:12px 16px;
   background:var(--line);
-  border-left:5px solid var(--accent);
-  border-radius:8px;
+  border-left:6px solid var(--accent);
+  border-radius:6px;
 }
 
-/* EXPERIENCE TYPOGRAPHY */
-.role{
-  font-size:20px;
-  font-weight:700;
-  margin-bottom:4px;
-}
+/* EXPERIENCE */
+.role{font-size:22px;font-weight:700;margin-bottom:6px;}
 
 .company-row{
   display:flex;
   justify-content:space-between;
-  font-size:16px;
+  font-size:17px;
   font-weight:600;
-}
-
-.location{
-  font-size:14px;
   color:gray;
-  margin-bottom:10px;
+}
+.location{font-size:15px;color:#888;margin-bottom:12px;}
+
+.exp-list{font-size:16px;padding-left:22px;}
+.exp-list li{margin-bottom:8px;}
+
+/* CARDS */
+.card{
+  background:var(--card);
+  padding:26px;
+  margin-bottom:26px;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
 }
 
-.exp-list{
-  font-size:15px;
-  margin-top:8px;
-  margin-bottom:12px;
-  padding-left:20px;
-}
-
-.exp-list li{
-  margin-bottom:6px;
-}
-
+/* ANCHOR OFFSET */
 .anchor{
   display:block;
-  height:70px;
-  margin-top:-70px;
+  height:90px;
+  margin-top:-90px;
   visibility:hidden;
 }
 
-.card{
-  background:var(--card);
-  padding:20px;
-  margin-bottom:20px;
-  border-radius:14px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.08);
-  transition:0.25s;
-}
-.card:hover{transform:scale(1.01);}
-
 /* FOOTER */
-footer{text-align:center;padding:20px;font-size:14px;opacity:0.8;}
+footer{
+  background:var(--footer-bg);
+  border-top:3px solid var(--accent);
+  text-align:center;
+  padding:22px;
+  font-size:14px;
+  color:gray;
+}
 
 /* RESPONSIVE MEDIA QUERIES */
 @media (max-width:768px){
-  h1{font-size:36px;}
+  h1{font-size:34px;}
   h2{font-size:20px;}
-  .nav-btn{font-size:14px;padding:6px 12px;}
-  .btn{font-size:13px;padding:8px 14px;}
-  .container{padding:20px 10px;}
-  .section-title{font-size:20px;padding:8px 12px;}
-  .role{font-size:18px;}
-  .company-row{font-size:14px;}
-  .location{font-size:13px;}
-  .exp-list{font-size:14px;}
+  .company-row{flex-direction:column;gap:2px;}
+  .theme-toggle-wrapper{top:10px;right:10px;}
 }
 
 @media (max-width:480px){
-  h1{font-size:32px;}
+  h1{font-size:30px;}
   h2{font-size:18px;}
-  .nav-btn{font-size:13px;padding:5px 10px;}
-  .btn{font-size:12px;padding:6px 12px;}
-  .section-title{font-size:18px;padding:6px 10px;}
-  .role{font-size:16px;}
-  .company-row{font-size:13px;flex-direction:column;align-items:flex-start;}
-  .location{font-size:12px;}
-  .exp-list{font-size:13px;padding-left:18px;}
+  .exp-list{font-size:15px;}
 }
 </style>
 </head>
 
 <body>
-
-<nav>
-  <a href="#summary-anchor" class="nav-btn">Summary</a>
-  <a href="#skills-anchor" class="nav-btn">Skills</a>
-  <a href="#experience-anchor" class="nav-btn">Experience</a>
-  <a href="#education-anchor" class="nav-btn">Education</a>
-  <a href="#certifications-anchor" class="nav-btn">Certifications</a>
-</nav>
-
+<!-- TOGGLE -->
 <div class="theme-toggle-wrapper">
   <label class="switch">
     <input type="checkbox" id="themeSwitch">
@@ -290,13 +246,19 @@ footer{text-align:center;padding:20px;font-size:14px;opacity:0.8;}
     </span>
   </label>
 </div>
-
+<nav>
+  <a href="#summary-anchor" class="nav-btn">Summary</a>
+  <a href="#skills-anchor" class="nav-btn">Skills</a>
+  <a href="#experience-anchor" class="nav-btn">Experience</a>
+  <a href="#education-anchor" class="nav-btn">Education</a>
+  <a href="#certifications-anchor" class="nav-btn">Certifications</a>
+</nav>
 <header>
 
 <h1>Vishal Sen</h1>
 <h2>DevOps • MLOps • AIOps Engineer</h2>
 
-<p style="margin-top:10px; font-size:16px; opacity:0.9;">
+<p style="margin-top:10px; font-size:16px; color:gray;">
 📍 Noida, India | 📱 +91-6375067621
 </p>
 
@@ -311,7 +273,7 @@ footer{text-align:center;padding:20px;font-size:14px;opacity:0.8;}
 
 <div class="container">
 <!-- SUMMARY -->
-<div id="summary" class="card">
+<div class="card">
   <span id="summary-anchor" class="anchor"></span>
   <div class="section-title">Summary</div>
 <p>
@@ -324,7 +286,7 @@ cloud-native solutions.
 </div>
 
 <!-- SKILLS -->
-<div id="skills" class="card">
+<div class="card">
   <span id="skills-anchor" class="anchor"></span>
   <div class="section-title">Skills</div>
   <p><strong>Cloud & Platforms:</strong> AWS, Microsoft Azure, GCP, DigitalOcean, VMware</p>
@@ -339,7 +301,7 @@ cloud-native solutions.
 </div>
 
 <!-- EXPERIENCE -->
-<div id="experience" class="card">
+<div class="card">
   <span id="experience-anchor" class="anchor"></span>
   <div class="section-title">Experience</div>
 <div class="role">Lead Consultant</div>
@@ -411,7 +373,7 @@ cloud-native solutions.
 </div>
 
 <!-- EDUCATION -->
-<div id="education" class="card">
+<div class="card">
   <span id="education-anchor" class="anchor"></span>
   <div class="section-title">Education</div>
 <p><strong>Master of Business Administration (MBA-T&FINANCE)</strong><br>Swami Vivekanand Subharti University, Meerut • 07/2021-06/2023</p>
@@ -438,28 +400,24 @@ cloud-native solutions.
 <footer>© 2026 Vishal Sen • DevOps Resume • GitHub Pages</footer>
 
 <script>
-// Theme toggle
+/* THEME PERSISTENCE */
 const themeSwitch = document.getElementById('themeSwitch');
+
+if(localStorage.getItem('theme') === 'dark'){
+  document.body.classList.add('dark');
+  themeSwitch.checked = true;
+}
+
 themeSwitch.addEventListener('change', () => {
-  document.body.classList.toggle('dark', themeSwitch.checked);
+  document.body.classList.toggle('dark');
+  localStorage.setItem('theme',
+    document.body.classList.contains('dark') ? 'dark' : 'light'
+  );
 });
 
-// Scroll restoration
+/* LOAD FROM TOP */
 history.scrollRestoration = "manual";
 window.addEventListener('load', () => window.scrollTo(0,0));
-
-// Smooth scrolling nav
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    const navbarOffset = 80;
-    const elementPosition = target.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - navbarOffset;
-    window.scrollTo({top: offsetPosition, behavior:'smooth'});
-    history.pushState(null, null, link.getAttribute('href'));
-  });
-});
 </script>
 
 </body>
