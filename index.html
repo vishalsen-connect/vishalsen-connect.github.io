@@ -1,294 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Vishal Sen | DevOps • MLOps • AIOps Engineer</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<meta name="description" content="Vishal Sen - DevOps, MLOps & AIOps Engineer with 7+ years experience in AWS, Azure, GCP, Kubernetes, CI/CD, Terraform and ML platforms.">
+<title>Vishal Sen | DevOps • MLOps • AIOps Architect</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta name="description" content="Vishal Sen – DevOps, MLOps & AIOps Architect specializing in Kubernetes, Terraform, AWS, Azure, CI/CD, and AI infrastructure."/>
+<meta name="author" content="Vishal Sen"/>
+
+<!-- ✅ Animated Favicon: Spinning VS -->
+<!-- Favicon Pack -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="shortcut icon" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+
+<!-- ✅ SEO Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Vishal Sen",
+  "url": "https://vishalsen-connect.github.io/",
+  "jobTitle": "DevOps • MLOps • AIOps Architect",
+  "description": "Platform Engineer with 7+ years of experience in Kubernetes, Terraform, CI/CD, multi-cloud and MLOps.",
+  "email": "mailto:vishalsen.connect@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Noida",
+    "addressCountry": "India"
+  },
+  "sameAs": [
+    "https://github.com/vishalsen-connect",
+    "https://linkedin.com/in/vishalsen-connect"
+  ],
+  "knowsAbout": [
+    "DevOps","MLOps","AIOps","Kubernetes","Terraform",
+    "AWS","Azure","CI/CD","DevSecOps","MLflow","SageMaker"
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
 :root{
   --bg:#ffffff;
-  --card:#ffffff;
-  --text:#1a1a1a;
-  --accent:#c9a227;
-  --accent-soft:#f7e7b5;
-  --line:#f1e4b3;
-  --footer-bg:#faf7ea;
+  --card:#f9fafb;
+  --text:#111827;
+  --muted:#6b7280;
+  --accent:#6366f1;
+  --border:#e5e7eb;
 }
 
-/* DARK */
 body.dark{
-  --bg:#0f1115;
-  --card:#161a22;
-  --text:#e6e6e6;
-  --accent:#d4af37;
-  --accent-soft:#2a2413;
-  --line:#3a3218;
-  --footer-bg:#161a22;
+  --bg:#0b0f17;
+  --card:#111827;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --border:#1f2937;
 }
+
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
 
 body{
-  margin:0;
-  font-family:'Inter', sans-serif;
+  font-family:Inter,system-ui;
   background:var(--bg);
   color:var(--text);
-  scroll-behavior:smooth;
-  scroll-padding-top:90px;
-  line-height:1.65;
-  font-size:17px;
-  transition:0.3s;
+  line-height:1.5;
 }
 
 /* NAVBAR */
-nav{
-  position:sticky;
-  top:0;
-  background:var(--card);
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:10px;
-  padding:12px;
-  z-index:1000;
-  box-shadow:0 4px 15px rgba(0,0,0,0.08);
-}
-
-.nav-btn{
-  padding:9px 18px;
-  border-radius:8px;
-  background:var(--accent-soft);
-  text-decoration:none;
-  color:var(--text);
-  font-weight:600;
-  font-size:15px;
-  transition:0.25s;
-}
-.nav-btn:hover{background:var(--accent);color:white;}
-
-/* TOGGLE WITH SUN MOON */
-.theme-toggle-wrapper{
-  position:fixed;
-  top:14px;
-  right:14px;
-  z-index:1100;
-}
-.switch {
-  position: relative;
-  display: inline-block;
-  width:62px;
-  height:32px;
-}
-
-.switch input { display:none; }
-
-.slider {
-  position:absolute;
-  cursor:pointer;
-  top:0; left:0; right:0; bottom:0;
-  background:#ccc;
-  border-radius:34px;
-  transition:0.4s;
-}
-.slider:before {
-  content:"";
-  position:absolute;
-  height:26px;
-  width:26px;
-  left:3px;
-  top:3px;
-  background:white;
-  border-radius:50%;
-  transition:0.4s;
-  z-index:2;
-}
-
-.sun-icon, .moon-icon{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:14px;
-  pointer-events:none;
-}
-.sun-icon{left:8px;color:#000;}
-.moon-icon{right:8px;color:#000;}
-
-input:checked + .slider{background:var(--accent);}
-input:checked + .slider:before{transform:translateX(30px);}
-
-/* HEADER */
 header{
-  padding:80px 20px 55px;
-  text-align:center;
-  background:linear-gradient(135deg,var(--card),var(--accent-soft));
-  border-bottom:3px solid var(--accent);
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(255,255,255,.5);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  z-index:1000;
+}
+body.dark header{background:rgba(11,15,23,.5);}
+
+nav{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 18px;
 }
 
-.top-buttons{
+.nav-left{
   display:flex;
-  gap:10px;
-  justify-content:center;
-  margin-top:20px;
+  gap:16px;
   flex-wrap:wrap;
+}
+
+nav a{
+  color:var(--text);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:500;
+}
+
+.toggle{
+  cursor:pointer;
+  font-size:18px;
+}
+
+/* HERO */
+.hero{
+  max-width:1100px;
+  margin:90px auto 20px;
+  padding:0 18px;
+  text-align:center;
+}
+
+.hero h1{font-size:32px;margin-bottom:6px;}
+.hero h3{font-weight:500;color:var(--muted);margin-bottom:10px;}
+
+.contact{
+  font-size:14px;
+  color:var(--muted);
+  margin-bottom:14px;
+}
+
+/* BUTTONS */
+.buttons{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
 .btn{
+  padding:9px 14px;
+  border-radius:8px;
+  font-size:14px;
+  text-decoration:none;
+  color:#fff;
   display:flex;
   align-items:center;
   gap:6px;
-  border:none;
-  padding:10px 18px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:600;
-  text-decoration:none;
-  font-size:14px;
-  transition:0.25s;
 }
-.btn:hover{transform:translateY(-2px) scale(1.03);}
 
-.pdf-btn{background:#16a34a;color:white;}
-.gmail-btn{background:#ea4335;color:white;}
-.linkedin-btn{background:#0a66c2;color:white;}
-.github-btn{background:#111827;color:white;}
-.pdf-btn{background:#16a34a;color:white;}
+/* Brand colors */
+.email{background:#ea4335;}
+.github{background:#24292e;}
+.linkedin{background:#0077b5;}
+.resume{background:#16a34a;}
 
-.btn:hover{transform:translateY(-2px);}
-
-/* CONTENT */
-.container{
-  max-width:1150px;
+/* SECTIONS */
+section{
+  max-width:1100px;
   margin:auto;
   padding:30px 18px;
+  scroll-margin-top:70px;
 }
 
-.section-title{
-  font-size:24px;
-  font-weight:700;
-  margin-bottom:20px;
-  padding:12px 16px;
-  background:var(--line);
-  border-left:6px solid var(--accent);
-  border-radius:6px;
-}
+h2{font-size:24px;margin-bottom:16px;}
 
-/* EXPERIENCE */
-.role{font-size:22px;font-weight:700;margin-bottom:6px;}
-
-.company-row{
-  display:flex;
-  justify-content:space-between;
-  font-size:17px;
-  font-weight:600;
-  color:gray;
-}
-.location{font-size:15px;color:#888;margin-bottom:12px;}
-
-.exp-list{font-size:16px;padding-left:22px;}
-.exp-list li{margin-bottom:8px;}
-
-/* CARDS */
 .card{
   background:var(--card);
-  padding:26px;
-  margin-bottom:26px;
-  border-radius:12px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  padding:18px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  margin-bottom:14px;
 }
 
-/* ANCHOR OFFSET */
-.anchor{
-  display:block;
-  height:90px;
-  margin-top:-90px;
-  visibility:hidden;
+.role{font-size:17px;font-weight:700;margin-bottom:3px;}
+
+.exp-header{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  font-weight:600;
+  font-size:14px;
 }
+
+.location{
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:8px;
+}
+
+ul{padding-left:16px;}
+li{margin-bottom:6px;font-size:14px;}
 
 /* FOOTER */
 footer{
-  background:var(--footer-bg);
-  border-top:3px solid var(--accent);
   text-align:center;
-  padding:22px;
+  padding:20px;
+  border-top:1px solid var(--border);
+  background:var(--card);
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* FLOAT BUTTON */
+.floating{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#6366f1;
+  color:#fff;
+  padding:12px 16px;
+  border-radius:50px;
+  text-decoration:none;
   font-size:14px;
-  color:gray;
+  box-shadow:0 8px 20px rgba(0,0,0,.2);
 }
 
-/* RESPONSIVE MEDIA QUERIES */
-@media (max-width:768px){
-  h1{font-size:34px;}
-  h2{font-size:20px;}
-  .company-row{flex-direction:column;gap:2px;}
-  .theme-toggle-wrapper{top:10px;right:10px;}
-}
-
-@media (max-width:480px){
-  h1{font-size:30px;}
-  h2{font-size:18px;}
-  .exp-list{font-size:15px;}
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h1{font-size:24px;}
+  .hero h3{font-size:15px;}
+  nav{flex-direction:row;}
+  .nav-left{gap:10px;}
 }
 </style>
 </head>
 
 <body>
-<!-- TOGGLE -->
-<div class="theme-toggle-wrapper">
-  <label class="switch">
-    <input type="checkbox" id="themeSwitch">
-    <span class="slider">
-      <i class="fa-solid fa-sun sun-icon"></i>
-      <i class="fa-solid fa-moon moon-icon"></i>
-    </span>
-  </label>
-</div>
-<nav>
-  <a href="#summary-anchor" class="nav-btn">Summary</a>
-  <a href="#skills-anchor" class="nav-btn">Skills</a>
-  <a href="#experience-anchor" class="nav-btn">Experience</a>
-  <a href="#education-anchor" class="nav-btn">Education</a>
-  <a href="#certifications-anchor" class="nav-btn">Certifications</a>
-</nav>
+
 <header>
-
-<h1>Vishal Sen</h1>
-<h2>DevOps • MLOps • AIOps Engineer</h2>
-
-<p style="margin-top:10px; font-size:16px; color:gray;">
-📍 Noida, India | 📱 +91-6375067621
-</p>
-
-<div class="top-buttons">
-  <a class="btn gmail-btn" href="mailto:vishalsen.connect@gmail.com"><i class="fa-solid fa-envelope"></i> Gmail</a>
-  <a class="btn linkedin-btn" href="https://linkedin.com/in/vishalsen-connect/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-  <a class="btn github-btn" href="https://github.com/vishalsen-connect" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-  <a class="btn pdf-btn" href="resume.pdf" download><i class="fa-solid fa-download"></i> Download CV</a>
-</div>
-
+  <nav>
+    <div class="nav-left">
+      <a href="#summary">Summary</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
+    </div>
+    <div class="toggle" onclick="toggleTheme()">🌙</div>
+  </nav>
 </header>
 
-<div class="container">
-<!-- SUMMARY -->
+<!-- HERO -->
+<div class="hero">
+  <h1>Vishal Sen</h1>
+  <h3>DevOps • MLOps • AIOps Architect</h3>
+  <div class="contact">📍 Noida, India | 📞 +91-6375067621</div>
+
+  <div class="buttons">
+    <a class="btn email" href="mailto:vishalsen.connect@gmail.com"><i class="fa-solid fa-envelope"></i>Email</a>
+    <a class="btn github" href="https://github.com/vishalsen-connect" target="_blank"><i class="fa-brands fa-github"></i>GitHub</a>
+    <a class="btn linkedin" href="https://linkedin.com/in/vishalsen-connect" target="_blank"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+    <a class="btn resume" href="resume.pdf" download><i class="fa-solid fa-file-arrow-down"></i>Download CV</a>
+  </div>
+</div>
+
+<section id="summary">
+<h2>Summary</h2>
 <div class="card">
-  <span id="summary-anchor" class="anchor"></span>
-  <div class="section-title">Summary</div>
-<p>
 DevOps & MLOps Engineer with 7+ years of experience in multi-cloud environments across AWS, Azure, and
 GCP. Skilled in CI/CD pipeline automation, Kubernetes orchestration, IaC, monitoring, and secure 
 infrastructure design. Experienced in building scalable ML pipelines using SageMaker, MLflow, and
 Azure ML. Focused on automation, cost optimization, system reliability, and delivering high-performance
 cloud-native solutions.
-</p>
 </div>
+</section>
 
-<!-- SKILLS -->
+<section id="skills">
+<h2>Skills</h2>
 <div class="card">
-  <span id="skills-anchor" class="anchor"></span>
-  <div class="section-title">Skills</div>
   <p><strong>Cloud & Platforms:</strong> AWS, Microsoft Azure, GCP, DigitalOcean, VMware</p>
   <p><strong>Containerization & Orchestration:</strong> Docker, Kubernetes (EKS, AKS), Amazon ECS, Azure Container, OpenShift</p>
   <p><strong>CI/CD & DevOps Tools:</strong> Jenkins, Azure DevOps, GitHub Actions, Argo CD, AWS CodePipeline, Bitbucket Pipelines</p>
@@ -296,22 +274,19 @@ cloud-native solutions.
   <p><strong>Monitoring & Observability:</strong> Amazon CloudWatch, Azure Monitor, Prometheus, Grafana, ELK Stack, Splunk, Zabbix, Nagios</p>
   <p><strong>Scripting & Programming:</strong> Python, Bash, Groovy</p>
   <p><strong>Security & Compliance:</strong> CyberArk, SailPoint, SonarQube, Fossology, OWASP Dependency-Check, SOC 2, HIPAA, GDPR</p>
-  <p><strong>MLOps & ML Platforms:</strong> MLflow, Kubeflow, KServe, DVC, SageMaker, Azure ML, Vertex AI, TensorFlow, PyTorch, Scikit-learn, Pandas, NumPy</p>
+  <p><strong>ML Platforms:</strong> MLflow, Kubeflow, KServe, DVC, SageMaker, Azure ML, Vertex AI, TensorFlow, PyTorch, Scikit-learn, Pandas, NumPy</p>
   <p><strong>Data & Analytics:</strong> Power BI, Tableau, Glue, Azure Data Factory</p>  
 </div>
+</section>
 
-<!-- EXPERIENCE -->
+<section id="experience">
+<h2>Experience</h2>
+
 <div class="card">
-  <span id="experience-anchor" class="anchor"></span>
-  <div class="section-title">Experience</div>
 <div class="role">Lead Consultant</div>
-<div class="company-row">
-<span>HCL Tech</span>
-<span>August 2024 – October 2025</span>
-</div>
-<div class="location">Noida, Uttar Pradesh</div>
-
-<ul class="exp-list">
+<div class="exp-header"><span>HCL Tech</span><span>Aug 2024 – Oct 2025</span></div>
+<div class="location">Noida, Uttar Pradesh, IN</div>
+<ul>
 <li>Architected multi-cloud CI/CD pipelines (AWS, Azure, GitHub Actions), increasing deployment reliability by 70%.</li>
 <li>Deployed containerized applications on AKS, EKS, OpenShift, managing 500+ artifacts via JFrog Artifactory.</li>
 <li>Built end-to-end MLOps pipelines using MLflow, SageMaker, Azure ML, and Docker with automated model training & deployment.</li>
@@ -320,16 +295,13 @@ cloud-native solutions.
 <li>Developed detailed runbooks, architecture diagrams, and SOPs, improving onboarding efficiency by 30%.</li>
 <li>Achieved 99.9% uptime using proactive monitoring with Azure Monitor & AWS CloudWatch.</li>
 </ul>
-
-
-<div class="role">DevOps Engineer</div>
-<div class="company-row">
-<span>Matellio Inc (India)</span>
-<span>April 2023 – June 2024</span>
 </div>
-<div class="location">Jaipur, Rajasthan</div>
 
-<ul class="exp-list">
+<div class="card">
+<div class="role">DevOps Engineer</div>
+<div class="exp-header"><span>Matellio Inc (India)</span><span>Apr 2023 – Jun 2024</span></div>
+<div class="location">Jaipur, Rajasthan, IN</div>
+<ul>
 <li>Managed multi-cloud infrastructure across AWS and Azure, supporting 50+ distributed production workloads.</li>
 <li>Built scalable Infrastructure as Code using Terraform, CloudFormation, and ARM templates, reducing provisioning time by 70%.</li>
 <li>Designed and implemented CI/CD pipelines using Jenkins, GitHub Actions, and Azure DevOps for multi-environment deployments.</li>
@@ -337,87 +309,84 @@ cloud-native solutions.
 <li>Optimized cloud resource utilization, reducing AWS and Azure costs by 30% through rightsizing and auto-scaling strategies.</li>
 <li>Implemented disaster recovery solutions, improving RTO by 50%.</li>
 </ul>
-
-
-<div class="role">DevOps Engineer</div>
-<div class="company-row">
-<span>Stellar Informatics Private Limited</span>
-<span>September 2020 – April 2023</span>
 </div>
-<div class="location">Noida, Uttar Pradesh</div>
 
-<ul class="exp-list">
+<div class="card">
+<div class="role">DevOps Engineer</div>
+<div class="exp-header"><span>Stellar Informatics Private Limited</span><span>Sep 2020 – Apr 2023</span></div>
+<div class="location">Noida, Uttar Pradesh, IN</div>
+<ul>
 <li>Built CI/CD pipelines for AWS and Azure, improving deployment efficiency by 70%.</li>
 <li>Managed GitHub, GitLab, and AWS CodeCommit repositories with standardized branching strategies.</li>
 <li>Integrated DevSecOps tools such as SonarQube and OWASP Dependency-Check to ensure secure releases.</li>
 <li>Implemented monitoring using Prometheus, Grafana, and AWS CloudWatch, reducing issue detection time by 40%.</li>
 <li>Containerized applications using Docker and deployed workloads on AWS ECS and Azure Container Instances (ACI).</li>
 </ul>
-
-
-<div class="role">System Administrator</div>
-<div class="company-row">
-<span>Evision Technoserve Private Limited</span>
-<span>January 2019 – September 2020</span>
 </div>
-<div class="location">Noida, Uttar Pradesh</div>
 
-<ul class="exp-list">
+<div class="card">
+<div class="role">System Administrator</div>
+<div class="exp-header"><span>Evision Technoserve Private Limited</span><span>Jan 2019 – Sep 2020</span></div>
+<div class="location">Noida, Uttar Pradesh, IN</div>
+<ul>
 <li>Automated infrastructure provisioning on AWS and Azure using Terraform, reducing environment setup time by 60%.</li>
 <li>Built CI/CD pipelines using Jenkins, improving deployment speed by 50%.</li>
 <li>Managed Linux and Windows servers, ensuring high availability and patch compliance.</li>
 <li>Implemented Docker-based containerization and monitoring using Prometheus and Grafana.</li>
 </ul>
-
-
 </div>
 
-<!-- EDUCATION -->
+</section>
+
+<section id="education">
+<h2>Education</h2>
 <div class="card">
-  <span id="education-anchor" class="anchor"></span>
-  <div class="section-title">Education</div>
 <p><strong>Master of Business Administration (MBA-T&FINANCE)</strong><br>Swami Vivekanand Subharti University, Meerut • 07/2021-06/2023</p>
 <p><strong>Bachelor of Computer Application (BCA)</strong><br>Jaipur National University, Jaipur • 07/2017 - 06/2021</p>
-</div>
-
-<!-- CERTIFICATIONS -->
-<div id="certifications" class="card">
-  <span id="certifications-anchor" class="anchor"></span>
-  <div class="section-title">Certifications</div>
-  <ul class="exp-list">
-    <li>Microsoft Certified: Azure Fundamentals</li>
-    <li>Microsoft Certified: Azure Administrator Associate</li>
-    <li>Microsoft Certified: DevOps Engineer Expert</li>
-    <li>AWS Certified DevOps Engineer - Professional</li>
-    <li>Red Hat Certified System Administrator (RHCSA)</li>
-    <li>Red Hat Certified Engineer (RHCE)</li>
-    <li>Red Hat Certified Virtualization Administrator (RHCVA)</li>
-  </ul>
-</div>
 
 </div>
+</section>
 
-<footer>© 2026 Vishal Sen • DevOps Resume • GitHub Pages</footer>
+<section id="certifications">
+<h2>Certifications</h2>
+<div class="card">
+
+<span>Microsoft Certified: Azure Fundamentals</span>
+<a href="https://learn.microsoft.com/api/credentials/share/en-gb/vishalsen-7177/1BEE1E5DE6D8061F?sharingId=EDB5D14513B7B8A8" target="_blank">[View]</a><br>
+
+<span>Microsoft Certified: Azure Administrator Associate</span>
+<a href="https://learn.microsoft.com/api/credentials/share/en-gb/vishalsen-7177/9BC3036879995AEB?sharingId=EDB5D14513B7B8A8" target="_blank">[View]</a><br>
+
+<span>Microsoft Certified: DevOps Engineer Expert</span>
+<a href="https://learn.microsoft.com/api/credentials/share/en-gb/vishalsen-7177/CEE04BD8E3CBF465?sharingId=EDB5D14513B7B8A8" target="_blank">[View]</a><br>
+
+<span>AWS Certified DevOps Engineer – Professional</span>
+<a href="" target="_blank">[View]</a><br>
+
+<span>Red Hat Certified System Administrator</span>
+<a href="https://rhtapps.redhat.com/verify?certId=180-059-818" target="_blank">[View]</a><br>
+
+<span>Red Hat Certified Engineer</span>
+<a href="https://rhtapps.redhat.com/verify?certId=180-059-818" target="_blank">[View]</a><br>
+
+<span>Red Hat Certified Specialist in Virtualization</span>
+<a href="https://rhtapps.redhat.com/verify?certId=180-059-818" target="_blank">[View]</a>
+
+</div>
+</section>
+
+<footer>
+© 2026 Vishal Sen • DevOps Resume • GitHub Pages
+</footer>
+
+<!-- <a class="floating" href="mailto:vishalsen.connect@gmail.com">Hire Me</a> -->
 
 <script>
-/* THEME PERSISTENCE */
-const themeSwitch = document.getElementById('themeSwitch');
-
-if(localStorage.getItem('theme') === 'dark'){
-  document.body.classList.add('dark');
-  themeSwitch.checked = true;
+function toggleTheme(){
+  document.body.classList.toggle("dark");
+  const icon = document.querySelector(".toggle");
+  icon.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
 }
-
-themeSwitch.addEventListener('change', () => {
-  document.body.classList.toggle('dark');
-  localStorage.setItem('theme',
-    document.body.classList.contains('dark') ? 'dark' : 'light'
-  );
-});
-
-/* LOAD FROM TOP */
-history.scrollRestoration = "manual";
-window.addEventListener('load', () => window.scrollTo(0,0));
 </script>
 
 </body>
