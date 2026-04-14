@@ -6,7 +6,11 @@
 <title>404</title>
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body {
   font-family: 'Inter', monospace;
@@ -16,18 +20,20 @@ body {
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:20px;
+  padding:16px;
 }
 
 /* CONTAINER */
 .container {
   width:100%;
-  max-width:950px;
+  max-width:900px;
+  backdrop-filter: blur(20px);
   background: rgba(15,23,42,0.6);
   border-radius:20px;
-  padding:24px;
+  padding:20px;
   border:1px solid rgba(56,189,248,0.2);
   box-shadow: 0 0 40px rgba(56,189,248,0.1);
+  animation: fadeIn 1.2s ease-in-out;
 }
 
 /* HEADER */
@@ -36,14 +42,14 @@ body {
   justify-content:space-between;
   align-items:center;
   flex-wrap:wrap;
+  gap:10px;
 }
 
 .title {
-  font-size: clamp(50px, 10vw, 80px);
+  font-size:clamp(50px, 10vw, 80px);
   background: linear-gradient(90deg,#38bdf8,#22c55e);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 .subtitle {
@@ -67,28 +73,30 @@ body {
   100% { transform:scale(2); opacity:0; }
 }
 
-/* TEXT */
+/* TYPING */
 .typing {
   margin-top:10px;
   color:#94a3b8;
   font-size:14px;
+  line-height:1.4;
 }
 
 /* GRID */
 .grid {
   display:grid;
-  grid-template-columns: repeat(3,1fr);
-  gap:15px;
+  grid-template-columns: repeat(3, 1fr);
+  gap:12px;
   margin-top:20px;
 }
 
 .card {
   background: rgba(2,6,23,0.8);
   border-radius:12px;
-  padding:15px;
+  padding:14px;
   border:1px solid rgba(56,189,248,0.15);
 }
 
+/* METRICS */
 .metric {
   font-size:20px;
   margin-top:5px;
@@ -101,29 +109,24 @@ body {
 /* TERMINAL */
 .terminal {
   margin-top:20px;
-  background: rgba(2, 6, 23, 0.85);
+  background: rgba(2, 6, 23, 0.8);
   border: 1px solid rgba(56,189,248,0.3);
-  padding: 16px;
-  border-radius: 10px;
-  font-size: 13px;
-  min-height: 120px;
-  font-family: monospace;
-  overflow:hidden;
+  padding:16px;
+  border-radius:10px;
+  font-size:13px;
 }
 
 .line {
-  margin: 6px 0;
-  opacity: 0;
-  transform: translateY(5px);
-  animation: fadeUp 0.4s ease forwards;
+  margin:6px 0;
+  opacity:0;
+  animation:typing 0.5s forwards;
 }
 
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+.line:nth-child(1) { animation-delay:0.5s; }
+.line:nth-child(2) { animation-delay:1s; }
+.line:nth-child(3) { animation-delay:1.5s; }
+.line:nth-child(4) { animation-delay:2s; }
+.line:nth-child(5) { animation-delay:2.5s; }
 
 .cmd { color:#38bdf8; }
 .ok { color:#22c55e; }
@@ -142,27 +145,60 @@ body {
   border-radius:20px;
   font-size:12px;
   background: rgba(56,189,248,0.1);
-  border:1px solid rgba(56,189,248,0.3);
+  border: 1px solid rgba(56,189,248,0.3);
+  transition:0.3s;
+}
+
+.tag:hover {
+  background:#38bdf8;
+  color:#020617;
+  transform: translateY(-2px);
 }
 
 /* FOOTER */
 .footer {
-  margin-top:18px;
+  margin-top:15px;
   text-align:center;
   font-size:12px;
   color:#64748b;
 }
 
-/* MOBILE */
-@media (max-width:768px) {
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity:0; transform: translateY(15px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+@keyframes typing {
+  to { opacity:1; }
+}
+
+/* 📱 MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
   .grid {
-    grid-template-columns:1fr;
+    grid-template-columns: 1fr;
   }
 
   .header {
     flex-direction:column;
     align-items:flex-start;
-    gap:10px;
+  }
+
+  .card {
+    text-align:left;
+  }
+
+  .terminal {
+    font-size:12px;
+  }
+
+  .subtitle {
+    font-size:12px;
+  }
+
+  .typing {
+    font-size:13px;
   }
 }
 </style>
@@ -198,8 +234,14 @@ body {
     </div>
   </div>
 
-  <!-- TERMINAL (FIXED) -->
-  <div class="terminal" id="terminal"></div>
+  <!-- TERMINAL -->
+  <div class="terminal">
+    <div class="line"><span class="cmd">$</span> initializing systems...</div>
+    <div class="line"><span class="cmd">$</span> scanning infrastructure...</div>
+    <div class="line"><span class="cmd">$</span> loading pipelines...</div>
+    <div class="line ok">✔ systems operational</div>
+    <div class="line ok">✔ monitoring active</div>
+  </div>
 
   <!-- TAGS -->
   <div class="tags">
@@ -218,7 +260,6 @@ body {
 </div>
 
 <script>
-// typing effect
 const text = "The page you’re looking for isn’t here... but the system is up and running.";
 let i = 0;
 
@@ -231,45 +272,11 @@ function typeWriter() {
 }
 typeWriter();
 
-// metrics
 setInterval(() => {
   document.getElementById("cpu").innerText = (20 + Math.random()*50).toFixed(0) + "%";
   document.getElementById("latency").innerText = (80 + Math.random()*100).toFixed(0) + "ms";
   document.getElementById("errors").innerText = (Math.random()*0.1).toFixed(2) + "%";
 }, 2000);
-
-// TERMINAL (FIXED WORKING VERSION)
-const logs = [
-  "<span class='cmd'>$</span> initializing systems...",
-  "<span class='cmd'>$</span> scanning infrastructure...",
-  "<span class='cmd'>$</span> loading pipelines...",
-  "<span class='ok'>✔ systems operational</span>",
-  "<span class='ok'>✔ monitoring active</span>"
-];
-
-const terminal = document.getElementById("terminal");
-let j = 0;
-
-function addLog() {
-  if (!terminal) return;
-
-  if (j < logs.length) {
-    const div = document.createElement("div");
-    div.className = "line";
-    div.innerHTML = logs[j];
-    terminal.appendChild(div);
-    j++;
-    setTimeout(addLog, 700);
-  } else {
-    setTimeout(() => {
-      terminal.innerHTML = "";
-      j = 0;
-      addLog();
-    }, 3000);
-  }
-}
-
-addLog();
 </script>
 
 </body>
