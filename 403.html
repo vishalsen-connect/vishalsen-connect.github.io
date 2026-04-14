@@ -6,7 +6,11 @@
 <title>403</title>
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body {
   font-family: 'Inter', monospace;
@@ -96,6 +100,7 @@ body {
   border:1px solid rgba(239,68,68,0.15);
 }
 
+/* METRICS */
 .metric {
   font-size:20px;
   margin-top:5px;
@@ -174,7 +179,7 @@ body {
   to { opacity:1; }
 }
 
-/* 📱 MOBILE */
+/* 📱 MOBILE RESPONSIVE */
 @media (max-width: 768px) {
 
   .grid {
@@ -184,6 +189,10 @@ body {
   .header {
     flex-direction: column;
     align-items:flex-start;
+  }
+
+  .card {
+    text-align:left;
   }
 
   .terminal {
@@ -223,7 +232,7 @@ body {
     </div>
     <div class="card">
       Auth Status
-      <div class="metric green">FAILED</div>
+      <div class="metric red">FAILED</div>
     </div>
     <div class="card">
       Violations
@@ -249,6 +258,7 @@ body {
     <span class="tag">DevSecOps</span>
   </div>
 
+
   <div class="footer">
     access restricted • authentication required • security enforced
   </div>
@@ -271,6 +281,8 @@ typeWriter();
 setInterval(() => {
   document.getElementById("cpu").innerText = (20 + Math.random()*50).toFixed(0) + "%";
 }, 2000);
+
+
 </script>
 
 </body>
