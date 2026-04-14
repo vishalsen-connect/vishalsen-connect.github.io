@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>404</title>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Inter', monospace;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color:#e2e8f0;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.container {
+  width:950px;
+  backdrop-filter: blur(20px);
+  background: rgba(15,23,42,0.6);
+  border-radius:20px;
+  padding:30px;
+  border:1px solid rgba(56,189,248,0.2);
+  box-shadow: 0 0 40px rgba(56,189,248,0.1);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.title {
+  font-size:80px;
+  background: linear-gradient(90deg,#38bdf8,#22c55e);
+  -webkit-background-clip:text;
+  background-clip: text; 
+  -webkit-text-fill-color:transparent;
+}
+
+.subtitle {
+  color:#94a3b8;
+}
+
+.dot {
+  width:8px;
+  height:8px;
+  background:#22c55e;
+  border-radius:50%;
+  display:inline-block;
+  margin-right:6px;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform:scale(1); opacity:1; }
+  100% { transform:scale(2); opacity:0; }
+}
+
+.grid {
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:15px;
+  margin-top:20px;
+}
+
+.card {
+  background: rgba(2,6,23,0.8);
+  border-radius:12px;
+  padding:15px;
+  border:1px solid rgba(56,189,248,0.15);
+}
+
+.metric {
+  font-size:22px;
+  margin-top:5px;
+}
+
+.green { color:#22c55e; }
+.blue { color:#38bdf8; }
+.red { color:#ef4444; }
+
+/* YOUR TERMINAL (integrated) */
+.terminal {
+  margin-top: 25px;
+  background: rgba(2, 6, 23, 0.8);
+  border: 1px solid rgba(56,189,248,0.3);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(56,189,248,0.1);
+}
+
+.line {
+  margin: 6px 0;
+  opacity: 0;
+  animation: typing 0.5s forwards;
+}
+
+.line:nth-child(1) { animation-delay: 0.5s; }
+.line:nth-child(2) { animation-delay: 1s; }
+.line:nth-child(3) { animation-delay: 1.5s; }
+.line:nth-child(4) { animation-delay: 2s; }
+.line:nth-child(5) { animation-delay: 2.5s; }
+
+.cmd { color: #38bdf8; }
+.ok { color: #22c55e; }
+
+/* tags */
+.tags {
+  margin-top: 25px;
+  text-align:center;
+}
+
+.tag {
+  display:inline-block;
+  margin:6px;
+  padding:8px 14px;
+  border-radius:20px;
+  font-size:12px;
+  background: rgba(56,189,248,0.1);
+  border: 1px solid rgba(56,189,248,0.3);
+  transition:0.3s;
+}
+
+.tag:hover {
+  background:#38bdf8;
+  color:#020617;
+  transform: translateY(-3px);
+}
+
+.footer {
+  margin-top:20px;
+  text-align:center;
+  font-size:12px;
+  color:#64748b;
+}
+
+/* typing text */
+.typing {
+  margin-top:10px;
+  color:#94a3b8;
+}
+
+/* animations */
+@keyframes fadeIn {
+  from { opacity:0; transform: translateY(20px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+@keyframes typing {
+  to { opacity: 1; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <div>
+      <div class="title">404</div>
+      <div class="subtitle">Endpoint not found — system operational</div>
+    </div>
+    <div class="green"><span class="dot"></span>LIVE</div>
+  </div>
+
+  <p class="typing" id="typing"></p>
+
+  <!-- metrics -->
+  <div class="grid">
+    <div class="card">
+      CPU Usage
+      <div class="metric blue" id="cpu">32%</div>
+    </div>
+    <div class="card">
+      Latency
+      <div class="metric green" id="latency">120ms</div>
+    </div>
+    <div class="card">
+      Errors
+      <div class="metric red" id="errors">0.02%</div>
+    </div>
+  </div>
+
+  <!-- YOUR TERMINAL -->
+  <div class="terminal">
+    <div class="line"><span class="cmd">$</span> initializing systems...</div>
+    <div class="line"><span class="cmd">$</span> scanning infrastructure...</div>
+    <div class="line"><span class="cmd">$</span> loading pipelines...</div>
+    <div class="line ok">✔ systems operational</div>
+    <div class="line ok">✔ monitoring active</div>
+  </div>
+
+  <!-- tags -->
+  <div class="tags">
+    <span class="tag">Cloud</span>
+    <span class="tag">Kubernetes</span>
+    <span class="tag">Automation</span>
+    <span class="tag">CI/CD</span>
+    <span class="tag">Observability</span>
+    <span class="tag">AI Systems</span>
+  </div>
+
+  <div class="footer">
+    engineered for scale • reliability • intelligence
+  </div>
+
+</div>
+
+<script>
+/* typing text */
+const text = "The page you’re looking for isn’t here... but the system is up and running.";
+let i = 0;
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 25);
+  }
+}
+typeWriter();
+
+/* dynamic metrics */
+setInterval(() => {
+  document.getElementById("cpu").innerText = (20 + Math.random()*50).toFixed(0) + "%";
+  document.getElementById("latency").innerText = (80 + Math.random()*100).toFixed(0) + "ms";
+  document.getElementById("errors").innerText = (Math.random()*0.1).toFixed(2) + "%";
+}, 2000);
+</script>
+
+</body>
+</html>

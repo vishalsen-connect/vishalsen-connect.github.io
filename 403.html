@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>403</title>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Inter', monospace;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color:#e2e8f0;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.container {
+  width:950px;
+  backdrop-filter: blur(20px);
+  background: rgba(15,23,42,0.6);
+  border-radius:20px;
+  padding:30px;
+  border:1px solid rgba(239,68,68,0.2);
+  box-shadow: 0 0 40px rgba(239,68,68,0.1);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.title {
+  font-size:80px;
+  background: linear-gradient(90deg,#ef4444,#f97316);
+
+  -webkit-background-clip: text;  /* for Chrome/Safari */
+  background-clip: text;          /* standard property */
+
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color:#94a3b8;
+}
+
+.dot {
+  width:8px;
+  height:8px;
+  background:#ef4444;
+  border-radius:50%;
+  display:inline-block;
+  margin-right:6px;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform:scale(1); opacity:1; }
+  100% { transform:scale(2); opacity:0; }
+}
+
+.grid {
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:15px;
+  margin-top:20px;
+}
+
+.card {
+  background: rgba(2,6,23,0.8);
+  border-radius:12px;
+  padding:15px;
+  border:1px solid rgba(239,68,68,0.15);
+}
+
+.metric {
+  font-size:22px;
+  margin-top:5px;
+}
+
+.green { color:#22c55e; }
+.blue { color:#38bdf8; }
+.red { color:#ef4444; }
+
+/* TERMINAL */
+.terminal {
+  margin-top: 25px;
+  background: rgba(2, 6, 23, 0.8);
+  border: 1px solid rgba(239,68,68,0.3);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(239,68,68,0.1);
+}
+
+.line {
+  margin: 6px 0;
+  opacity: 0;
+  animation: typing 0.5s forwards;
+}
+
+.line:nth-child(1) { animation-delay: 0.5s; }
+.line:nth-child(2) { animation-delay: 1s; }
+.line:nth-child(3) { animation-delay: 1.5s; }
+.line:nth-child(4) { animation-delay: 2s; }
+.line:nth-child(5) { animation-delay: 2.5s; }
+
+.cmd { color: #38bdf8; }
+.ok { color: #22c55e; }
+.fail { color: #ef4444; }
+
+/* tags */
+.tags {
+  margin-top: 25px;
+  text-align:center;
+}
+
+.tag {
+  display:inline-block;
+  margin:6px;
+  padding:8px 14px;
+  border-radius:20px;
+  font-size:12px;
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.3);
+  transition:0.3s;
+}
+
+.tag:hover {
+  background:#ef4444;
+  color:#020617;
+  transform: translateY(-3px);
+}
+
+.footer {
+  margin-top:20px;
+  text-align:center;
+  font-size:12px;
+  color:#64748b;
+}
+
+.typing {
+  margin-top:10px;
+  color:#94a3b8;
+}
+
+@keyframes fadeIn {
+  from { opacity:0; transform: translateY(20px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+@keyframes typing {
+  to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <div>
+      <div class="title">403</div>
+      <div class="subtitle">Access denied — authorization required</div>
+    </div>
+    <div class="red"><span class="dot"></span>RESTRICTED</div>
+  </div>
+
+  <p class="typing" id="typing"></p>
+
+  <!-- metrics -->
+  <div class="grid">
+    <div class="card">
+      CPU Usage
+      <div class="metric blue" id="cpu">32%</div>
+    </div>
+    <div class="card">
+      Auth Checks
+      <div class="metric green" id="latency">Failed</div>
+    </div>
+    <div class="card">
+      Access Violations
+      <div class="metric red" id="errors">1</div>
+    </div>
+  </div>
+
+  <!-- TERMINAL -->
+  <div class="terminal">
+    <div class="line"><span class="cmd">$</span> request received...</div>
+    <div class="line fail">✖ access denied</div>
+    <div class="line"><span class="cmd">$</span> recording activity...</div>
+    <div class="line ok">✔ activity logged</div>
+    <div class="line ok">✔ administrators notified</div>
+  </div>
+
+  <!-- tags -->
+  <div class="tags">
+    <span class="tag">Security</span>
+    <span class="tag">IAM</span>
+    <span class="tag">Access Control</span>
+    <span class="tag">Zero Trust</span>
+    <span class="tag">Audit Logs</span>
+    <span class="tag">DevSecOps</span>
+  </div>
+
+  <div class="footer">
+    access restricted • authentication required • security enforced
+  </div>
+
+</div>
+
+<script>
+const text = "You don’t have permission to access this resource. Please authenticate or contact the administrator.";
+let i = 0;
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 25);
+  }
+}
+typeWriter();
+
+/* dynamic metrics */
+setInterval(() => {
+  document.getElementById("cpu").innerText = (20 + Math.random()*50).toFixed(0) + "%";
+}, 2000);
+</script>
+
+</body>
+</html>
