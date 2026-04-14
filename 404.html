@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>404</title>
 
 <style>
@@ -11,42 +12,50 @@ body {
   font-family: 'Inter', monospace;
   background: radial-gradient(circle at top, #0f172a, #020617);
   color:#e2e8f0;
-  height:100vh;
+  min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  overflow:hidden;
+  overflow-x:hidden;
+  padding:20px;
 }
 
+/* MAIN CONTAINER */
 .container {
-  width:950px;
+  width:100%;
+  max-width:950px;
   backdrop-filter: blur(20px);
   background: rgba(15,23,42,0.6);
   border-radius:20px;
-  padding:30px;
+  padding:24px;
   border:1px solid rgba(56,189,248,0.2);
   box-shadow: 0 0 40px rgba(56,189,248,0.1);
-  animation: fadeIn 1.5s ease-in-out;
+  animation: fadeIn 1.2s ease-in-out;
 }
 
+/* HEADER */
 .header {
   display:flex;
   justify-content:space-between;
   align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
 .title {
-  font-size:80px;
+  font-size:clamp(48px, 10vw, 80px);
   background: linear-gradient(90deg,#38bdf8,#22c55e);
   -webkit-background-clip:text;
-  background-clip: text; 
+  background-clip: text;
   -webkit-text-fill-color:transparent;
 }
 
 .subtitle {
   color:#94a3b8;
+  font-size:14px;
 }
 
+/* LIVE DOT */
 .dot {
   width:8px;
   height:8px;
@@ -62,6 +71,15 @@ body {
   100% { transform:scale(2); opacity:0; }
 }
 
+/* TYPOGRAPHY */
+.typing {
+  margin-top:10px;
+  color:#94a3b8;
+  font-size:14px;
+  line-height:1.4;
+}
+
+/* GRID → RESPONSIVE */
 .grid {
   display:grid;
   grid-template-columns: repeat(3,1fr);
@@ -76,8 +94,9 @@ body {
   border:1px solid rgba(56,189,248,0.15);
 }
 
+/* METRICS */
 .metric {
-  font-size:22px;
+  font-size:20px;
   margin-top:5px;
 }
 
@@ -85,17 +104,16 @@ body {
 .blue { color:#38bdf8; }
 .red { color:#ef4444; }
 
-/* YOUR TERMINAL (integrated) */
+/* TERMINAL */
 .terminal {
-  margin-top: 25px;
+  margin-top: 20px;
   background: rgba(2, 6, 23, 0.8);
   border: 1px solid rgba(56,189,248,0.3);
-  padding: 20px;
+  padding: 16px;
   border-radius: 10px;
   text-align: left;
-  font-size: 14px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 25px rgba(56,189,248,0.1);
+  font-size: 13px;
+  overflow:hidden;
 }
 
 .line {
@@ -113,16 +131,17 @@ body {
 .cmd { color: #38bdf8; }
 .ok { color: #22c55e; }
 
-/* tags */
+/* TAGS */
 .tags {
-  margin-top: 25px;
-  text-align:center;
+  margin-top: 20px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
 }
 
 .tag {
-  display:inline-block;
-  margin:6px;
-  padding:8px 14px;
+  padding:7px 12px;
   border-radius:20px;
   font-size:12px;
   background: rgba(56,189,248,0.1);
@@ -133,32 +152,51 @@ body {
 .tag:hover {
   background:#38bdf8;
   color:#020617;
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
+/* FOOTER */
 .footer {
-  margin-top:20px;
+  margin-top:18px;
   text-align:center;
   font-size:12px;
   color:#64748b;
 }
 
-/* typing text */
-.typing {
-  margin-top:10px;
-  color:#94a3b8;
-}
-
-/* animations */
+/* ANIMATIONS */
 @keyframes fadeIn {
-  from { opacity:0; transform: translateY(20px); }
+  from { opacity:0; transform: translateY(15px); }
   to { opacity:1; transform: translateY(0); }
 }
 
-@keyframes typing {
-  to { opacity: 1; }
-}
+/* 📱 MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
 
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items:flex-start;
+  }
+
+  .card {
+    text-align:left;
+  }
+
+  .terminal {
+    font-size:12px;
+  }
+
+  .subtitle {
+    font-size:12px;
+  }
+
+  .typing {
+    font-size:13px;
+  }
+}
 </style>
 </head>
 
@@ -176,7 +214,7 @@ body {
 
   <p class="typing" id="typing"></p>
 
-  <!-- metrics -->
+  <!-- METRICS -->
   <div class="grid">
     <div class="card">
       CPU Usage
@@ -192,7 +230,7 @@ body {
     </div>
   </div>
 
-  <!-- YOUR TERMINAL -->
+  <!-- TERMINAL -->
   <div class="terminal">
     <div class="line"><span class="cmd">$</span> initializing systems...</div>
     <div class="line"><span class="cmd">$</span> scanning infrastructure...</div>
@@ -201,7 +239,7 @@ body {
     <div class="line ok">✔ monitoring active</div>
   </div>
 
-  <!-- tags -->
+  <!-- TAGS -->
   <div class="tags">
     <span class="tag">Cloud</span>
     <span class="tag">Kubernetes</span>
@@ -218,9 +256,9 @@ body {
 </div>
 
 <script>
-/* typing text */
 const text = "The page you’re looking for isn’t here... but the system is up and running.";
 let i = 0;
+
 function typeWriter() {
   if (i < text.length) {
     document.getElementById("typing").innerHTML += text.charAt(i);
@@ -230,7 +268,6 @@ function typeWriter() {
 }
 typeWriter();
 
-/* dynamic metrics */
 setInterval(() => {
   document.getElementById("cpu").innerText = (20 + Math.random()*50).toFixed(0) + "%";
   document.getElementById("latency").innerText = (80 + Math.random()*100).toFixed(0) + "ms";
