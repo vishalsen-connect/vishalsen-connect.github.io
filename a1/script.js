@@ -6,7 +6,7 @@ const params = new URLSearchParams(window.location.search);
 const key = params.get("key");
 
 // change this key per resume if needed
-const VALID_KEY = "devops-X9k2#7Lp";
+const VALID_KEY = "X9k2#7Lp";
 
 if (key !== VALID_KEY) {
   window.location.replace("/403.html");
