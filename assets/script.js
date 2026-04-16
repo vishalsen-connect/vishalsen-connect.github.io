@@ -62,3 +62,24 @@
   });
 
 })();
+
+// 📊 TRACK RECRUITER
+(function trackVisit() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+
+    const ref = params.get("ref") || "direct";
+    const resume = window.location.pathname.replaceAll("/", "") || "root";
+
+    fetch("https://script.google.com/macros/s/AKfycbxCmBshMtufZHB021pTZx0bobhgoYqx-b16_lihnlByiI2pK6ly4RFmeUt5GB_YiSWN/exec", {
+      method: "POST",
+      body: JSON.stringify({
+        resume: resume,
+        ref: ref,
+        userAgent: navigator.userAgent
+      })
+    });
+  } catch (e) {
+    console.log("Tracking failed", e);
+  }
+})();
