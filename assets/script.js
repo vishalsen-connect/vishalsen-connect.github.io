@@ -71,7 +71,7 @@
     const ref = params.get("ref") || "direct";
     const resume = window.location.pathname.replaceAll("/", "") || "root";
 
-    fetch("https://script.google.com/macros/s/AKfycbx5p_GDfpRKWfMSeZLAInMN8fvd8WtuNBNblBbYOGcx_SYA9FCqY43lstAC3br4xwQK/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbyYQ0nHsislfm9abS8R5sQ-JZDsLpHIlG-_hSfbqzauqlRhNPEOkx5OiERYuVvKXqn69w/exec", {
       method: "POST",
       mode: "no-cors",
       headers: {
