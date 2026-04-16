@@ -64,44 +64,69 @@
 })();
 
 // 📊 TRACK RECRUITER + GEO
-(async function trackVisit() {
+// 📊 TRACK RECRUITER + GEO + FALLBACK
+(function trackVisit() {
   try {
     const params = new URLSearchParams(window.location.search);
 
     const ref = params.get("ref") || "direct";
     const resume = window.location.pathname.replaceAll("/", "") || "root";
 
-    // 🌍 FETCH GEO INFO
-    let city = "unknown";
-    let country = "unknown";
+    // 🔹 Fallback data (always available)
+    const fallbackData = {
+      language: navigator.language || "unknown",
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "unknown"
+    };
 
-    try {
-      const geoRes = await fetch("https://ipapi.co/json");
-      const geo = await geoRes.json();
+    // 🔹 Default geo values
+    let geoData = {
+      country: "unknown",
+      city: "unknown",
+      ip: "unknown"
+    };
 
-      city = geo.city || "unknown";
-      country = geo.country_name || "unknown";
-    } catch (e) {
-      console.log("Geo fetch failed");
-    }
-
-    // 📡 SEND DATA (no-cors)
-    fetch("https://script.google.com/macros/s/AKfycbzIPpUmB_RRJ6XvucTl4LLDLy8fj7__QYKKLTu2QXHZov_JDgQoUH-wreZI-u5kZKeq9Q/exec", {
-      method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        resume: resume,
-        ref: ref,
-        city: city,
-        country: country,
-        userAgent: navigator.userAgent
+    // 🔹 Fetch geo info
+    fetch("https://ipapi.co/json")
+      .then(res => res.json())
+      .then(data => {
+        geoData = {
+          country: data.country_name || "unknown",
+          city: data.city || "unknown",
+          ip: data.ip || "unknown"
+        };
       })
-    });
+      .catch(() => {
+        console.log("Geo fetch failed, using fallback only");
+      })
+      .finally(() => {
+        // 🔹 Send tracking (always runs)
+        fetch("https://script.google.com/macros/s/AKfycbzIPpUmB_RRJ6XvucTl4LLDLy8fj7__QYKKLTu2QXHZov_JDgQoUH-wreZI-u5kZKeq9Q/exec", {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            resume: resume,
+            ref: ref,
+            userAgent: navigator.userAgent,
+
+            // 🌍 GEO
+            country: geoData.country,
+            city: geoData.city,
+            ip: geoData.ip,
+
+            // 🌐 FALLBACK
+            language: fallbackData.language,
+            timezone: fallbackData.timezone
+          })
+        });
+      });
 
   } catch (e) {
     console.log("Tracking failed", e);
   }
 })();
+
+
+// https://script.google.com/macros/s/AKfycbzIPpUmB_RRJ6XvucTl4LLDLy8fj7__QYKKLTu2QXHZov_JDgQoUH-wreZI-u5kZKeq9Q/exec
